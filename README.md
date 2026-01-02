@@ -1,4 +1,4 @@
-# Indexer (simple crawler)
+# WebCrawler
 
 Small Java web-crawler using crawler4j and plain JDBC. Designed to run periodically, read customer/site configuration from the database, crawl site seeds, search for keywords and persist matched content.
 
