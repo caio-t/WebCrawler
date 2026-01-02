@@ -44,8 +44,8 @@ public class Controller {
 	        	
 	        	crawlerData.setCustomer(customer);
 	        	
-	        	System.out.println("Buscando cliente: " + customer.getName());
-	        	System.out.println("Palavras chaves: " + customer.getKeyword());
+	        	System.out.println("Search: " + customer.getName());
+	        	System.out.println("Keywords: " + customer.getKeyword());
 		        	
 	        	LinkedList<Site> sites = customer.getSites();
 	        	
@@ -75,8 +75,6 @@ public class Controller {
 		        	
 		        	configCrawl.setPolitenessDelay(site.getPolitenessDelay());
 		        	
-		        	//configCrawl.setResumableCrawling(true);
-		        	
 		        	configCrawl.setMaxPagesToFetch(site.getMaxPagesToFetch());
 		        	
 		        	configCrawl.setCrawlStorageFolder(crawlStorageFolder + "/crawler"+i);
@@ -95,9 +93,6 @@ public class Controller {
 		            controller.addSeed(site.getUrl());
 		            
 		            controller.start(Crawler.class, 5);
-		            
-		           // controller.waitUntilFinish();
-		            
 	        		
 	        		System.out.println("Site: " + site.getName() + " ==> " + site.getUrl());
 	        		

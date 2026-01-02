@@ -103,18 +103,18 @@ public class Crawler extends WebCrawler {
 		    	  {
 		    		  if (!crawlerData.getCustomer().getContentReaded().contains(url)) 
 		    		  {
-		    			  System.out.println("Encontrado palavra "+keywords[i]);
+		    			  System.out.println("Found "+keywords[i]);
 		    	  
 		    			  contentDao.insert(crawlerData.getCustomer().getId(), keywords[i], titleForRelease, text, url, domain, subDomain, parentUrl);
 		    		  }
 		    		  else
 		    		  {
-		    			  System.out.println("Conteúdo já lido: " + url);
+		    			  System.out.println("Reading: " + url);
 		    		  }
 		    	  }
 		    	  else
 		    	  {
-		    		  System.out.println("Âncora: " + url);
+		    		  System.out.println("Anchor: " + url);
 		    	  
 		    	  }
 		      }

@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: indexer-mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: webcrawler
+      MYSQL_ROOT_PASSWORD: ""
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    ports:
+      - "3306:3306"
+    volumes:
+      # Mount migration files so MySQL runs them on first startup
+      - ./migration:/docker-entrypoint-initdb.d
+      # Optional: persist data between container restarts
+      - indexer_db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  indexer_db_data:
+
+# Usage:
+#
+#   # Start MySQL and run migrations automatically:
+#   docker-compose up -d
+#
+#   # Check logs:
+#   docker-compose logs -f mysql
+#
+#   # Stop and clean up:
+#   docker-compose down
+#
+#   # Stop and remove data volume:
+#   docker-compose down -v
+#
+# Database will be available at: localhost:3306
+# Database: webcrawler
+# User: root
+# Password: (empty)
+#
+# Note: Update src/bitvix/indexer/util/Util.java if using a different
+#       database name, port, or credentials.
