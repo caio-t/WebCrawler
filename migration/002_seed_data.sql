@@ -10,8 +10,8 @@ VALUES (1, 'Demo Customer', 'keyword1,keyword2', 1, 0);
 -- Demo sites
 INSERT INTO entt_site (sit_chp_site, sit_var_name, sit_var_url, sit_var_domain, sit_int_maxdepthofcrawling, sit_int_maxpagestofetch, sit_int_politenessdelay)
 VALUES
-  (1, 'Example Site', 'https://example.com', 'example.com', 2, 1000, 200),
-  (2, 'Demo Blog', 'https://blog.example.com', 'example.com', 3, 500, 300);
+  (1, 'Globo.com', 'https://globo.com', 'Globo.com', 2, 1000, 200),
+  (2, 'Sapo', 'https://sapo.pt', 'Sapo', 3, 500, 300);
 
 -- Link customer to sites
 INSERT INTO tbla_customersite (id, cus_chp_customer, sit_chp_site)
@@ -19,7 +19,7 @@ VALUES (1, 1, 1), (2, 1, 2);
 
 -- Site seeds (the code reads all rows from entt_siteseed)
 INSERT INTO entt_siteseed (sid_chp_site_seed, sid_var_url)
-VALUES (1, 'https://example.com/'), (2, 'https://blog.example.com/');
+VALUES (1, 'https://globo.com/'), (2, 'https://sapo.pt/');
 
 -- Blacklist entry for demo customer
 INSERT INTO entt_blacklist (bll_chp_blacklist, cus_chp_customer, bll_var_url)

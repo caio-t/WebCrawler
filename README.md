@@ -51,5 +51,3 @@ Suggested next steps
 - Add a `pom.xml` or Gradle build to simplify dependency management and builds.
 - Extract database schema (tables used: `entt_customer`, `entt_site`, `entt_content`, `entt_blacklist`, `entt_siteseed`, `entt_contentreaded`, `tbla_customersite`, `tbla_config`) into a migration SQL file.
 - Consider converting raw SQL concatenations to prepared statements where user input is involved.
-
-If you want, I can generate a minimal `pom.xml`, extract schema SQL from `ContentDao`, or convert one DAO method to use fully-parameterized prepared statements — which should I do next?
